@@ -5,6 +5,7 @@ import java.util.List;
 public class Lion {
 
     Predator predator;
+    KittenCounter kittenCounter;
     boolean hasMane;
 
     public Lion(Feline feline) {
@@ -23,7 +24,7 @@ public class Lion {
 
 
     public int getKittens() {
-        return predator.getKittens();
+        return kittenCounter.getKittens();
     }
 
     public boolean doesHaveMane() {
