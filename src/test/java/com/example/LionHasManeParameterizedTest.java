@@ -27,6 +27,8 @@ public class LionHasManeParameterizedTest {
     @Test
     public void hasManeTest() throws Exception {
         Lion lion = new Lion(sex);
-        assertEquals(hasMane, lion.doesHaveMane());
+        assertEquals(String.format("Некорректное определение наличия гривы при вызове метода doesHaveMane() для пола " +
+                        "%s. Ожидаемое значение: %s. Фактические значение: %s", sex, hasMane, lion.doesHaveMane()),
+                        hasMane, lion.doesHaveMane());
     }
 }

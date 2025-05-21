@@ -12,7 +12,7 @@ public class AlexTest {
     @Test
     public void alexTest() throws Exception {
         Alex alex = new Alex();
-        assertTrue(alex.doesHaveMane());
+        assertTrue("Алекс - самец, поэтому у него должна быть грива", alex.doesHaveMane());
     }
 
     @Test
@@ -20,7 +20,10 @@ public class AlexTest {
         Alex alex = new Alex();
         List<String> expectedListAlexFriends = List.of("Марти", "Глория", "Мелман");
         List<String> actualListAlexFriends = alex.getFriends();
-        assertEquals(expectedListAlexFriends, actualListAlexFriends);
+        assertEquals(String.format(
+                        "Ожидаемый список друзей Алекса: %s. Фактический результат: %s",
+                        expectedListAlexFriends, actualListAlexFriends),
+                        expectedListAlexFriends, actualListAlexFriends);
     }
 
     @Test
@@ -28,7 +31,10 @@ public class AlexTest {
         Alex alex = new Alex();
         String expectedPlaceOfResidence = "Нью-Йоркский зоопарк";
         String actualPlaceOfResidence = alex.getPlaceOfLiving();
-        assertEquals(expectedPlaceOfResidence, actualPlaceOfResidence);
+        assertEquals(String.format(
+                        "Место жительства льва Алекса: %s. Фактический результат: %s",
+                        expectedPlaceOfResidence, actualPlaceOfResidence),
+                        expectedPlaceOfResidence, actualPlaceOfResidence);
     }
 
     @Test
@@ -36,7 +42,8 @@ public class AlexTest {
         Alex alex = new Alex();
         int expectedCountKittens = 0;
         int actualCountKittens = alex.getKittens();
-        assertEquals(expectedCountKittens, actualCountKittens);
+        assertEquals("У Алекса не должно быть львят",
+                expectedCountKittens, actualCountKittens);
     }
 
 

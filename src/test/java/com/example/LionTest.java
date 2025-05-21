@@ -38,7 +38,9 @@ public class LionTest {
         int expectedKittensCount = 1;
         Mockito.when(feline.getKittens()).thenReturn(1);
         int actualKittensCount = lion.getKittens();
-        assertEquals(expectedKittensCount, actualKittensCount);
+        assertEquals(String.format("При вызове метода getKittens() для объекта класса Lion ожидаемое количество " +
+                "котят %d, фактическое количество %d", expectedKittensCount, actualKittensCount),
+                expectedKittensCount, actualKittensCount);
     }
 
     @Test
@@ -47,7 +49,8 @@ public class LionTest {
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expectedFood);
         List<String> actualFood = lion.getFood();
-        assertEquals(expectedFood, actualFood);
+        assertEquals("Для объекта класса Lion метод getFood() должен возвращать список еды для хищников",
+                expectedFood, actualFood);
 
         Mockito.verify(feline).eatMeat();
     }

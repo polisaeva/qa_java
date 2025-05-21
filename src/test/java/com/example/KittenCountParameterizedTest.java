@@ -30,6 +30,8 @@ public class KittenCountParameterizedTest {
     public void ShouldBeEqual() {
         Feline feline = new Feline();
         int kittensCount = feline.getKittens(actualCount);
-        assertEquals(expectedCount, kittensCount);
+        assertEquals(String.format("Для количества котят %d метод getKittens() должен возвращать: %d. Фактический " +
+                "результат: %d", actualCount, expectedCount, kittensCount),
+                                              expectedCount, kittensCount);
     }
 }

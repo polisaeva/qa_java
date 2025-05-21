@@ -21,7 +21,10 @@ public class FelineTest {
         Feline feline = new Feline();
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         List<String> actualFood = feline.eatMeat();
-        assertEquals(expectedFood, actualFood);
+        assertEquals(String.format(
+                        "Для класса Feline метод eatMeat() должен возвращать список еды для хищников: %s. " +
+                        "Фактический результат: %s", expectedFood, actualFood),
+                                                     expectedFood, actualFood);
     }
 
     @Test
@@ -29,7 +32,8 @@ public class FelineTest {
         Feline feline = new Feline();
         String expectedFamily = "Кошачьи";
         String actualFamily = feline.getFamily();
-        assertEquals(expectedFamily, actualFamily);
+        assertEquals("Метод getFamily() для объектов класса Feline должен возвращать 'Кошачьи'",
+                expectedFamily, actualFamily);
     }
 
     @Test
@@ -37,7 +41,9 @@ public class FelineTest {
         Feline feline = new Feline();
         int expectedCount = 1;
         int actualCount = feline.getKittens();
-        assertEquals(expectedCount, actualCount);
+        assertEquals(String.format("Для объекта класса Feline метод getKittens() должен возвращать количество котят: %d. " +
+                        "Фактическое количество котят: %d", expectedCount, actualCount),
+                                                            expectedCount, actualCount);
     }
 
 }

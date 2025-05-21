@@ -19,7 +19,8 @@ public class CatTest {
     @Test
     public void catTest() {
         Cat cat = new Cat(feline);
-        assertEquals(feline, cat.predator);
+        assertEquals("После создания Cat через конструктор, поле 'predator' должно быть равно переданному " +
+                "Feline", feline, cat.predator);
     }
 
     @Test
@@ -28,7 +29,8 @@ public class CatTest {
         Cat cat = new Cat(feline);
         String expectedSound = "Мяу";
         String actualSound = cat.getSound();
-        assertEquals(expectedSound, actualSound);
+        assertEquals("Метод getSound() у объекта класса Cat должен возвращать 'Мяу'",
+                expectedSound, actualSound);
     }
 
 
@@ -38,7 +40,8 @@ public class CatTest {
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expectedFood);
         List<String> actualFood = cat.getFood();
-        assertEquals(expectedFood, actualFood);
+        assertEquals("Для объекта класса Cat метод getFood() должен возвращать список еды для хищников",
+                expectedFood, actualFood);
 
         Mockito.verify(feline).eatMeat();
     }
