@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,12 +14,18 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class LionTest {
 
+    private Lion lion;
+
     @Mock
     Feline feline;
 
+    @Before
+    public void initLion() {
+        lion = new Lion(feline);
+    }
+
     @Test
     public void lionTest() {
-        Lion lion = new Lion(feline);
         assertEquals(feline, lion.predator);
     }
 
@@ -34,7 +41,6 @@ public class LionTest {
 
     @Test
     public void getKittensTest() {
-        Lion lion = new Lion(feline);
         int expectedKittensCount = 1;
         Mockito.when(feline.getKittens()).thenReturn(1);
         int actualKittensCount = lion.getKittens();
@@ -45,7 +51,6 @@ public class LionTest {
 
     @Test
     public void getFoodTest() throws Exception {
-        Lion lion = new Lion(feline);
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expectedFood);
         List<String> actualFood = lion.getFood();

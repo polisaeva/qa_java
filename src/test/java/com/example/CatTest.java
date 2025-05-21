@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,12 +14,18 @@ import static org.junit.Assert.*;
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
 
+    private Cat cat;
+
     @Mock
     Feline feline;
 
+    @Before
+    public void initCat() {
+        cat = new Cat(feline);
+    }
+
     @Test
     public void catTest() {
-        Cat cat = new Cat(feline);
         assertEquals("После создания Cat через конструктор, поле 'predator' должно быть равно переданному " +
                 "Feline", feline, cat.predator);
     }
@@ -26,7 +33,6 @@ public class CatTest {
     @Test
     public void getSoundTest() {
         Feline feline = new Feline();
-        Cat cat = new Cat(feline);
         String expectedSound = "Мяу";
         String actualSound = cat.getSound();
         assertEquals("Метод getSound() у объекта класса Cat должен возвращать 'Мяу'",
@@ -36,7 +42,6 @@ public class CatTest {
 
     @Test
     public void getFoodTest() throws Exception {
-        Cat cat = new Cat(feline);
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.eatMeat()).thenReturn(expectedFood);
         List<String> actualFood = cat.getFood();

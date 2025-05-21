@@ -1,5 +1,6 @@
 package com.example;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -10,12 +11,17 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(MockitoJUnitRunner.class)
 public class FelineTest {
+
+    private Feline feline;
+
+    @Before
+    public void initFeline() {
+        feline = new Feline();
+    }
 
     @Test
     public void eatMeatTest() throws Exception {
-        Feline feline = new Feline();
         List<String> expectedFood = List.of("Животные", "Птицы", "Рыба");
         List<String> actualFood = feline.eatMeat();
         assertEquals(String.format(
@@ -26,7 +32,6 @@ public class FelineTest {
 
     @Test
     public void getFamilyTest() {
-        Feline feline = new Feline();
         String expectedFamily = "Кошачьи";
         String actualFamily = feline.getFamily();
         assertEquals("Метод getFamily() для объектов класса Feline должен возвращать 'Кошачьи'",
@@ -35,7 +40,6 @@ public class FelineTest {
 
     @Test
     public void getKittensTest() {
-        Feline feline = new Feline();
         int expectedCount = 1;
         int actualCount = feline.getKittens();
         assertEquals(String.format("Для объекта класса Feline метод getKittens() должен возвращать количество котят: %d. " +
