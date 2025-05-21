@@ -4,12 +4,15 @@ import java.util.List;
 
 public class Lion {
 
+    Feline feline;
     Predator predator;
     KittenCounter kittenCounter;
     boolean hasMane;
 
     public Lion(Feline feline) {
+        this.feline = feline;
         this.predator = feline;
+        this.kittenCounter = feline;
     }
 
     public Lion(String sex) throws Exception {
