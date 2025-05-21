@@ -16,7 +16,7 @@ public class KittenCountParameterizedTest {
         this.expectedCount = expectedCount;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters(name = "Тест №{index}: ожидаемый результат {1} при аргументе {0}")
     public static Object[] getKittensCount() {
         return new Object[][] {
                 {0, 0},
