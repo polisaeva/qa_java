@@ -59,7 +59,10 @@ public class LionTest {
         List<String> actualFood = lion.getFood();
         assertEquals("Для объекта класса Lion метод getFood() должен возвращать список еды для хищников",
                 expectedFood, actualFood);
-
-        Mockito.verify(feline).eatMeat();
+}
+        @Test
+        public void getFoodVerifyTest() throws Exception {
+            lion.getFood();
+            Mockito.verify(feline).eatMeat();
     }
 }

@@ -47,7 +47,11 @@ public class CatTest {
         List<String> actualFood = cat.getFood();
         assertEquals("Для объекта класса Cat метод getFood() должен возвращать список еды для хищников",
                 expectedFood, actualFood);
+    }
 
+    @Test
+    public void getFoodVerifyTest() throws Exception {
+        cat.getFood();
         Mockito.verify(feline).eatMeat();
     }
 
