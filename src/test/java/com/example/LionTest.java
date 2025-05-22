@@ -25,13 +25,8 @@ public class LionTest {
     Feline feline;
 
     @Before
-    public void initLion() {
-        lion = new Lion(feline);
-    }
-
-    @Test
-    public void lionTest() {
-        assertEquals(feline, lion.predator);
+    public void initLion() throws Exception {
+        lion = new Lion("Самец", feline);
     }
 
     @Test
@@ -39,7 +34,7 @@ public class LionTest {
         exceptionRule.expect(Exception.class);
         exceptionRule.expectMessage("Используйте допустимые значения пола животного - самец или самка");
 
-        new Lion("Female");
+        new Lion("Female", feline);
     }
 
     @Test

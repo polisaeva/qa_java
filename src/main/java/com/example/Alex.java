@@ -6,7 +6,7 @@ public class Alex extends Lion {
 
 
     public Alex() throws Exception {
-        super("Самец");
+        super("Самец", new Feline());
     }
 
 public List<String> getFriends() {

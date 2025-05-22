@@ -10,6 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class LionHasManeParameterizedTest {
     private String sex;
     private Boolean hasMane;
+    private Feline feline = null;
 
     public LionHasManeParameterizedTest(String sex, Boolean hasMane) {
         this.sex = sex;
@@ -26,7 +27,7 @@ public class LionHasManeParameterizedTest {
 
     @Test
     public void hasManeTest() throws Exception {
-        Lion lion = new Lion(sex);
+        Lion lion = new Lion(sex, feline);
         assertEquals(String.format("Некорректное определение наличия гривы при вызове метода doesHaveMane() для пола " +
                         "%s. Ожидаемое значение: %s. Фактические значение: %s", sex, hasMane, lion.doesHaveMane()),
                         hasMane, lion.doesHaveMane());
